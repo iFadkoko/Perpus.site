@@ -10,10 +10,10 @@ Route::get('/daftar_buku', function () {
     return view('daftar_buku');
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/peminjaman', function () {
+    return view('peminjaman');
 });
 
-Route::get('/tutorial', function () {
-    return view('tutorial');
+Route::get('/pengembalian', function () {
+    return view('pengembalian');
 });

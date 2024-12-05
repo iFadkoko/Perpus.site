@@ -11,7 +11,7 @@
   </head>
   <body class="h-full">
 <div class="min-h-full">
-    <nav class="bg-gray-700" x-data="{ isOpen: false }">
+    <nav class="bg-indigo-900" x-data="{ isOpen: false }">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
@@ -23,8 +23,8 @@
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-white" aria-current="page">HOME</a>
                 <a href="/daftar_buku" class="rounded-md  bg-gray-900 px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">DAFTAR BUKU</a>
-                <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">ABOUT</a>
-                <a href="/tutorial" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">TUTORIAL</a>
+                <a href="/peminjaman" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">PEMINJAMAN</a>
+                <a href="/pengembalian" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">PENGEMBALIAN</a>
               </div>
             </div>
           </div>
@@ -82,8 +82,8 @@
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <a href="/" class="block rounded-md px-3 py-2 text-base font-medium text-white" aria-current="page">HOME</a>
           <a href="/daftar_buku" class="block rounded-md  bg-gray-900 px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">DAFTAR BUKU</a>
-          <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">ABOUT</a>
-          <a href="/tutorial" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">TUORIAL</a>
+          <a href="/peminjaman" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">PEMINJAMAN</a>
+          <a href="/pengembalian" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">PENGEMBALIAN</a>
         </div>
         <div class="border-t border-gray-700 pb-3 pt-4">
           <div class="flex items-center px-5">
@@ -111,9 +111,110 @@
     </header>
     <main>
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <!-- Your content -->
+        <section>
+          <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+            <header>
+              <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Koleksi Buku</h2>
+        
+              <p class="mt-4 max-w-md text-gray-500">
+                disini daftar buku yang bisa di pinjam, bila buku terdapat tulisan telah di pinjam buku tersebut 
+              </p>
+            </header>
+        
+            <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <li>
+                <a href="#" class="group block overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                    alt=""
+                    class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                  />
+        
+                  <div class="relative bg-white pt-3">
+                    <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                      Basic Tee
+                    </h3>
+        
+                    <p class="mt-2">
+                      <span class="sr-only"> Regular Price </span>
+        
+                      <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                    </p>
+                  </div>
+                </a>
+              </li>
+        
+              <li>
+                <a href="#" class="group block overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                    alt=""
+                    class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                  />
+        
+                  <div class="relative bg-white pt-3">
+                    <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                      Basic Tee
+                    </h3>
+        
+                    <p class="mt-2">
+                      <span class="sr-only"> Regular Price </span>
+        
+                      <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                    </p>
+                  </div>
+                </a>
+              </li>
+        
+              <li>
+                <a href="#" class="group block overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                    alt=""
+                    class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                  />
+        
+                  <div class="relative bg-white pt-3">
+                    <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                      Basic Tee
+                    </h3>
+        
+                    <p class="mt-2">
+                      <span class="sr-only"> Regular Price </span>
+        
+                      <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                    </p>
+                  </div>
+                </a>
+              </li>
+        
+              <li>
+                <a href="#" class="group block overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                    alt=""
+                    class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                  />
+        
+                  <div class="relative bg-white pt-3">
+                    <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                      Basic Tee
+                    </h3>
+        
+                    <p class="mt-2">
+                      <span class="sr-only"> Regular Price </span>
+        
+                      <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
+                    </p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
     </main>
+    <x-footer></x-footer>
   </div>
 </body>
 </html>
