@@ -1,19 +1,31 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Middleware\UserMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/daftar_buku', function () {
-    return view('daftar_buku');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/peminjaman', function () {
-    return view('peminjaman');
-});
+require __DIR__.'/auth.php';
 
-Route::get('/pengembalian', function () {
-    return view('pengembalian');
+//user route
+Route::middleware(['auth', 'userMiddleware'])->group(function(){
+
+    Route::get('dashboard',[UserController::class,'index'])->name('dashboard');
+});
+//admin route
+Route::middleware(['auth', 'adminMiddleware'])->group(function(){
+
+    Route::get('/admin/dashboard',[AdminController::class,'index'])->name('admin.dashboard');
 });
