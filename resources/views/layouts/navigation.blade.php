@@ -34,6 +34,22 @@
                     </x-nav-link>
             @endif
 
+            {{-- user links --}}
+
+            @if (auth()->user()->usertype == 'admin')
+                <x-nav-link href="admin/e-books" :active="request()->routeIs('admin.e-books')">
+                    {{ __('e-books') }}
+                </x-nav-link>
+
+                <x-nav-link href="admin/peminjaman" :active="request()->routeIs('admin.peminjaman')">
+                    {{ __('peminjaman') }}
+                </x-nav-link>
+
+                <x-nav-link href="admin/pengembalian" :active="request()->routeIs('admin.pengembalian')">
+                    {{ __('pengembalian') }}
+                </x-nav-link>
+            @endif 
+
         </div>
     </div>
             <!-- Settings Dropdown -->
