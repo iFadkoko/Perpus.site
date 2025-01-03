@@ -1,57 +1,66 @@
 
-<nav x-data="{ open: false }" class="bg-indigo-700 border-b border-amber-500">
+<nav x-data="{ open: false }" class="bg-indigo-700 border-b border-gray-500">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ auth()->user()->usertype == 'admin' ? route('admin.dashboard') : route('admin.dashboard') }}">
+                    <a>
                         <i class="fa-solid fa-book fa-xl text-white"></i> 
                     </a>
                 </div>
                 
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard') ">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-
-            {{-- admin links --}}
-
+<!-- Navigation Links -->
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            {{-- Dashboard link --}}
             @if (auth()->user()->usertype == 'admin')
-                    <x-nav-link href="admin/e-books" :active="request()->routeIs('admin.e-books')">
-                        {{ __('e-books') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="admin/peminjaman" :active="request()->routeIs('admin.peminjaman')">
-                        {{ __('peminjaman') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="admin/pengembalian" :active="request()->routeIs('admin.pengembalian')">
-                        {{ __('pengembalian') }}
-                    </x-nav-link>
+                <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    {{ __('Admin Dashboard') }}
+                </x-nav-link>
+            @else
+                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-nav-link>
             @endif
 
-            {{-- user links --}}
-
+            {{-- admin links --}}
             @if (auth()->user()->usertype == 'admin')
                 <x-nav-link href="admin/e-books" :active="request()->routeIs('admin.e-books')">
-                    {{ __('e-books') }}
+                    {{ __('e-Books') }}
                 </x-nav-link>
 
                 <x-nav-link href="admin/peminjaman" :active="request()->routeIs('admin.peminjaman')">
-                    {{ __('peminjaman') }}
+                    {{ __('Peminjaman') }}
                 </x-nav-link>
 
                 <x-nav-link href="admin/pengembalian" :active="request()->routeIs('admin.pengembalian')">
-                    {{ __('pengembalian') }}
+                    {{ __('Pengembalian') }}
                 </x-nav-link>
-            @endif 
+                <x-nav-link href="admin/kelolauser" :active="request()->routeIs('admin.kelolauser')">
+                    {{ __('Kelola User') }}
+                </x-nav-link>
+            @endif
 
+            {{-- user links --}}
+            @if (auth()->user()->usertype == 'user')
+                <x-nav-link href="admin/e-books" :active="request()->routeIs('admin.e-books')">
+                    {{ __('e-Books') }}
+                </x-nav-link>
+
+                <x-nav-link href="admin/peminjaman" :active="request()->routeIs('admin.peminjaman')">
+                    {{ __('Peminjaman') }}
+                </x-nav-link>
+
+                <x-nav-link href="admin/pengembalian" :active="request()->routeIs('admin.pengembalian')">
+                    {{ __('Pengembalian') }}
+                </x-nav-link>
+            @endif
         </div>
     </div>
+    
+        <div class="pt-3">
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
