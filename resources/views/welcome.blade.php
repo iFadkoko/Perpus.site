@@ -32,7 +32,7 @@
         <h1 class="text-3xl font-extrabold sm:text-5xl bg-gray-800/40 p-4 rounded-md ">
             PERPUSTAKAAN
 
-            <strong class="block font-extrabold text-amber-600">POLITEKNIK PAJAJARAN</strong>
+            <strong class="block font-extrabold text-indigo-600">POLITEKNIK PAJAJARAN</strong>
         </h1>
 
         <p class="mt-4 max-w-lg sm:text-xl/relaxed bg-gray-900/40 p-4 rounded-md text-slate-200">
@@ -51,7 +51,7 @@
             @else
                 <a
                     href="{{ route('login') }}"
-                    class="block w-full rounded bg-amber-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-amber-800 focus:outline-none focus:ring active:bg-indigo-500 sm:w-auto"
+                    class="block w-full rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-800 focus:outline-none focus:ring active:bg-indigo-500 sm:w-auto"
                 >
                     Log in
                 </a>
@@ -59,7 +59,7 @@
                 @if (Route::has('register'))
                     <a
                         href="{{ route('register') }}"
-                                class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-amber-600 shadow hover:bg-gray-200 focus:outline-none focus:ring active:text-amber-500 sm:w-auto"
+                                class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-indigo-600 shadow hover:bg-gray-200 focus:outline-none focus:ring active:text-indigo-500 sm:w-auto"
                     >
                         Register
                     </a>
