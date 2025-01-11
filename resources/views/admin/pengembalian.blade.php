@@ -27,32 +27,16 @@
                 x-show="showHeader" 
                 x-transition
             >
-                {{ __('Admin Dashboard') }}
+                {{ __('Admin Peminjaman') }}
             </h2>
         </div>
     </x-slot>
 
-    
-<div class="container relative flex flex-col justify-between h-full max-w-5xl px-6 mx-auto xl:px-0 ">
-    <h2 class="mb-2 text-2xl font-bold leading-tight text-gray-900">Request Peminjaman</h2>
-    <p class="mb-8 text-sm text-gray-500">Komfirmasi request dari User Perpustakaan</p>
-
-    <div class="w-full bg-white p-10 rounded-xl shadow-xl">
-        <div class="flex flex-col w-full mb-6 sm:flex-row">
+    <div class="container relative flex flex-col justify-between h-full max-w-5xl px-6 mx-auto xl:px-0 mt-4">
+        <h2 class="mb-2 text-2xl font-bold leading-tight text-gray-900 pb-3">Data Pengembalian</h2>    
+        <div class="w-full bg-white p-10 rounded-xl shadow-xl">
+            <div class="flex flex-col w-full mb-6 sm:flex-row">
+            </div>
         </div>
     </div>
-</div>
-
-<div class="container relative flex flex-col justify-between h-full max-w-5xl px-6 mx-auto xl:px-0 mt-4">
-    <h2 class="mb-2 text-2xl font-bold leading-tight text-gray-900">Request Pengembalian</h2>
-    <p class="mb-8 text-sm text-gray-500">Komfirmasi request dari User Perpustakaan</p>
-
-    <div class="w-full bg-white p-10 rounded-xl shadow-xl">
-        <div class="flex flex-col w-full mb-6 sm:flex-row">
-        </div>
-    </div>
-</div>
-
-
-
 </x-app-layout>

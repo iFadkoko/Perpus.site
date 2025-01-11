@@ -1,7 +1,7 @@
 
-<nav x-data="{ open: false }" class="bg-indigo-700">
+<nav x-data="{ open: false }" class="bg-indigo-700 fixed top-0 left-0 w-full z-50">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-indigo-700">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -27,29 +27,29 @@
 
             {{-- admin links --}}
             @if (auth()->user()->usertype == 'admin')
-                <x-nav-link href="admin/e-books" :active="request()->routeIs('admin.e-books')">
+                <x-nav-link href="ebooks" :active="request()->routeIs('admin.ebooks')">
                     {{ __('e-Books') }}
                 </x-nav-link>
 
-                <x-nav-link href="admin/peminjaman" :active="request()->routeIs('admin.peminjaman')">
+                <x-nav-link href="peminjaman" :active="request()->routeIs('admin.peminjaman')">
                     {{ __('Peminjaman') }}
                 </x-nav-link>
 
-                <x-nav-link href="admin/pengembalian" :active="request()->routeIs('admin.pengembalian')">
+                <x-nav-link href="pengembalian" :active="request()->routeIs('admin.pengembalian')">
                     {{ __('Pengembalian') }}
                 </x-nav-link>
-                <x-nav-link href="admin/kelolauser" :active="request()->routeIs('admin.kelolauser')">
+                <x-nav-link href="kelolauser" :active="request()->routeIs('admin.kelolauser')">
                     {{ __('Kelola User') }}
                 </x-nav-link>
             @endif
 
             {{-- user links --}}
             @if (auth()->user()->usertype == 'user')
-                <x-nav-link href="admin/e-books" :active="request()->routeIs('admin.e-books')">
+                <x-nav-link href="ebooks" :active="request()->routeIs('ebooks')">
                     {{ __('e-Books') }}
                 </x-nav-link>
 
-                <x-nav-link href="admin/peminjaman" :active="request()->routeIs('admin.peminjaman')">
+                <x-nav-link href="peminjaman" :active="request()->routeIs('peminjaman')">
                     {{ __('Peminjaman') }}
                 </x-nav-link>
 

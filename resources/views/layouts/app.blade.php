@@ -21,16 +21,16 @@
 
             <!-- Page Heading -->
             @isset($header)
-            <div class="flex flex-col md:flex-row">
+            <div class="flex flex-col md:flex-row h-full">
                 <!-- Sidebar Header -->
-                <div class="w-full md:w-40 h-auto md:h-1000px bg-indigo-900 text-white text-xs font-light p-4">
+                <div class="w-full md:w-40 h-auto md:h-full bg-indigo-900 text-white text-xs font-light fixed top-16 p-4  z-20 md:z-100">
                     {{ $header }}
                 </div>
             @endisset
 
             <!-- Main Content -->
-            <div class="flex-1 bg-gray-100 relative">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class=" bg-gray-100">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ml-0 md:ml-40 mt-2 md:mt-20">
                     {{ $slot }}
                 </div>
             </div>
