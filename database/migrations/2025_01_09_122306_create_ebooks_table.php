@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('judul_ebook'); // Judul eBook
             $table->string('kategori'); // Kategori eBook
             $table->integer('jumlah_halaman'); // Jumlah halaman
+            $table->string('link_ebook');// link eboPok
             $table->timestamps(); // Created_at & Updated_at
         });
     }

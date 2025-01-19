@@ -65,14 +65,14 @@
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
             
-                    <!-- Name -->
+                    <!-- Nim -->
                     <div class="mt-4 shadow-xl  bg-slate-100 rounded-md">
                         <x-input-label for="nim" :value="__('Nim')" />
                         <x-text-input id="nim" class="block mt-1 w-full" type="text" name="nim" :value="old('nim')" required autofocus autocomplete="nim" />
                         <x-input-error :messages="$errors->get('nim')" class="mt-2" />
                     </div>
             
-                    <!-- Name -->
+                    <!-- prodi -->
                     <div class="mb-3 mt-4  bg-slate-100 rounded-md shadow-xl">
                         <x-input-label for="prodi" :value="__('Prodi')" />
                             <select class="text-gray-500" name="prodi">

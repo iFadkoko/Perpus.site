@@ -13,10 +13,4 @@ class UsereBooksController extends Controller
 
     }
 
-    
-
-
-    // Mengirim data buku ke view
-
-
 }

@@ -15,5 +15,6 @@ class Ebook extends Model
         'judul_ebook',
         'kategori',
         'jumlah_halaman',
+        'link_ebook'
     ];
 }
