@@ -43,7 +43,7 @@
     </div>
 
     <div class="flex flex-wrap">
-        @foreach ( $bukus->reverse() as $item)
+        @foreach ( $buku->reverse() as $item)
             <div class="m-5">
                 <div class="bg-slate-200 p-2 rounded-lg w-96 h-58  place-items-center shadow-xl flex">
                     <div class="">

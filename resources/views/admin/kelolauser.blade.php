@@ -33,7 +33,9 @@
     </x-slot>
 
     <div class="container relative flex flex-col justify-between h-full max-w-5xl px-6 mx-auto xl:px-0 mt-4">
-        <h2 class="mb-2 text-2xl font-bold leading-tight text-gray-900 pb-3">Settings Users</h2>    
+      <div class=" font-bold">
+        <h3 class=" text-3xl pt-3 pl-4 pb-3 text-bold border-b-black border-2 shadow-lg rounded-lg mb-3">Kelola User</h3>
+    </div>     
         <div class="w-full bg-white p-10 rounded-xl shadow-xl">
             <div class="flex flex-col w-full mb-6 sm:flex-row">
                 <div class="container mx-auto p-4">

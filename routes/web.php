@@ -1,20 +1,20 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminBukuController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\UserMiddleware;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserPeminjamanController;
+use App\Http\Controllers\UserBukuController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\UsereBooksController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminBukuController;
 use App\Http\Controllers\Admin\AdminEbookController;
+use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminKelolaUserController;
 use App\Http\Controllers\Admin\AdminPeminjamanController;
 use App\Http\Controllers\Admin\AdminPengembalianController;
-use App\Http\Controllers\Admin\AdminProfileController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserPeminjamanController as UserUserPeminjamanController;
-use App\Http\Controllers\UserBukuController;
-use App\Http\Controllers\UsereBooksController;
-use App\Http\Controllers\UserPeminjamanController;
-use App\Http\Middleware\UserMiddleware;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,18 +39,18 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //user route
-
-
-
 Route::middleware(['auth', 'userMiddleware'])->group(function(){
 
-    Route::get('dashboard',[UserController::class,'index'])->name('dashboard');
-    Route::get('ebooks',[UsereBooksController::class,'index'])->name('ebooks');
-    Route::post('/peminjaman', [UserUserPeminjamanController::class, 'requestPeminjaman'])->name('user.peminjaman.request');
+    Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');
+    Route::get('/ebooks',[UsereBooksController::class,'index'])->name('ebooks');
     Route::get('/ebooks', [UsereBooksController::class, 'index']);
     Route::get('/daftarbuku', [UserBukuController::class, 'index'])->name('daftarbuku');
     Route::get('/daftarbuku{id}', [UserBukuController::class, 'detail'])->name('user.buku');
+    Route::get('/peminjaman', [UserPeminjamanController::class, 'index'])->name('peminjaman');
+    Route::post('/peminjaman', [UserPeminjamanController::class, 'upload'])->name('upload.user.peminjaman');
     });
+
+
 //admin route
 Route::middleware(['auth', 'adminMiddleware'])->group(function(){
 
@@ -64,6 +64,8 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function(){
     //peminjaman
     Route::get('admin/peminjaman/pinjam', [AdminPeminjamanController::class, 'formulir'])->name('admin.peminjaman.form');
     Route::get('/admin/peminjaman', [AdminPeminjamanController::class, 'index'])->name('admin.peminjaman');
+    Route::get('/admin/peminjaman/komfirmasi{id}', [AdminPeminjamanController::class, 'komfirmasi'])->name('admin.peminjaman.komfirmasi');
+    Route::post('/admin/peminjaman/komfirmasi{id}', [AdminPeminjamanController::class, 'accept'])->name('admin.peminjaman.komfirmasi.accept');
     Route::get('/admin/peminjaman/{id}', [AdminPeminjamanController::class, 'detail'])->name('admin.peminjaman.detail');
     Route::post('/admin/peminjaman/pinjam', [AdminPeminjamanController::class, 'pinjam'])->name('admin.peminjaman.pinjam');
     Route::delete('/admin/peminjaman/{id}', [AdminPeminjamanController::class, 'destroy'])->name('admin.peminjaman.destroy');

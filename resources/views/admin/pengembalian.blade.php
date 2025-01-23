@@ -32,18 +32,20 @@
         </div>
     </x-slot>
 
-    <div class="">
-        <h2 class="mb-2 mt-10 pt-5 text-2xl font-bold leading-tight text-gray-900 pb-3">Data member yang sedang meminjam</h2>    
+    <div class="">      
+    <div class=" font-bold">
+        <h3 class=" text-3xl pt-3 pl-4 pb-3 text-bold border-b-black border-2 shadow-lg rounded-lg mb-3">Data Member Yang Sedang Meminjam Buku</h3>
+    </div> 
         <div class="w-auto bg-white p-10 rounded-xl shadow-xl overflow-scroll h-96">
             <div class=" w-full mb-6 sm:flex-row flex flex-wrap justify-center">
-                <table class="border text-center">
+                <table class="border text-center text-sm">
                     <thead class="border">
                         <tr class="bg-gray-100 ">
                             <td class="p-5"></td>
                             <td class="p-5">Nama Member</td>
                             <td class="p-5">Judul Buku</td>
                             <td class="p-5">Tanggal Pinjam</td>
-                            <td class="p-5">Durasi Pinjam</td>
+                            <td class="p-5">Schedule kembali</td>
                             <td class="p-5">Status Pinjam</td>
                             <td class="p-5">Action</td>
                         </tr>
@@ -59,7 +61,7 @@
                             <td>{{ $item->status }}</td>
                             <td>
                                 <div class="flex gap-1 m-4">
-                                    <a href="{{ route('admin.pengembalian.accept', $item->id) }}" class=" px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-sky-600">accept</a>
+                                    <a href="{{ route('admin.pengembalian.accept', $item->id) }}" class=" px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-sky-600">Komfirmasi</a>
                                     <form action="{{ route('admin.peminjaman.destroy', $item->id) }}" method="POST" onsubmit="return confirm('apakah anda yakin ingin menghapus data ini?');">
                                         @csrf
                                         @method('DELETE')
@@ -77,9 +79,11 @@
     </div>
 
     <div class="mt-5">
-        <h2 class="mb-2 text-2xl font-bold leading-tight text-gray-900 pb-3">Data member yang Sudah Kembalikan Buku</h2>    
+        <div class=" font-bold">
+            <h3 class=" text-3xl pt-3 pl-4 pb-3 text-bold border-b-black border-2 shadow-lg rounded-lg mb-3">Data Member Yang Sudah Mengembalikan Buku</h3>
+        </div> 
         <div class="w-full bg-white p-10 rounded-xl shadow-xl">
-            <div class=" w-full mb-6 sm:flex-row">
+            <div class=" w-full mb-6 sm:flex-row text-sm">
                 <table class="border text-center">
                     <thead class="border">
                         <tr class="bg-gray-100 ">
@@ -87,7 +91,7 @@
                             <td class="p-5">Nama Member</td>
                             <td class="p-5">Judul Buku</td>
                             <td class="p-5">Tanggal Pinjam</td>
-                            <td class="p-5">Pinjam Berakhir</td>
+                            <td class="p-5">Schedule Kembali</td>
                             <td class="p-5">Tanggal Kembali</td>
                             <td class="p-5">Denda</td>
                             <td class="p-5">Status Pinjam</td>

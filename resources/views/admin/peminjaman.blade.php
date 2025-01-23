@@ -46,17 +46,19 @@
     </x-slot>
 
     <div class="">
-        <h2 class="mb-2 text-2xl font-bold leading-tight text-gray-900 pb-3">Data member yang sedang meminjam</h2>    
+        <div class=" font-bold">
+            <h3 class=" text-3xl pt-3 pl-4 pb-3 text-bold border-b-black border-2 shadow-lg rounded-lg mb-3">Data Member Yang Sedang Request Buku</h3>
+        </div> 
         <div class="w-full bg-white p-10 rounded-xl shadow-xl">
             <div class=" w-full mb-6 sm:flex-row">
-                <table class="border text-center">
+                <table class="border text-center text-sm">
                     <thead class="border">
                         <tr class="bg-gray-100 ">
                             <td class="p-5"></td>
                             <td class="p-5">Nama Member</td>
                             <td class="p-5">Judul Buku</td>
                             <td class="p-5">Tanggal Pinjam</td>
-                            <td class="p-5">Durasi Pinjam</td>
+                            <td class="p-5">Schedule kembali</td>
                             <td class="p-5">Status Pinjam</td>
                             <td class="p-5">Action</td>
                         </tr>
@@ -73,6 +75,7 @@
                             <td>
                                 <div class="flex gap-2">
                                     <a href="{{ route('admin.peminjaman.detail', $item->id) }}" class=" px-3 py-1 text-sm text-white bg-sky-500 rounded hover:bg-sky-600">detail</a>
+                                    <a href="{{ route('admin.peminjaman.komfirmasi', $item->id) }}" class=" px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600">Komfirmasi</a>
                                     <form action="{{ route('admin.peminjaman.destroy', $item->id) }}" method="POST" onsubmit="return confirm('apakah anda yakin ingin menghapus data ini?');">
                                         @csrf
                                         @method('DELETE')

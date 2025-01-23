@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('buku_id')->references('id')->on('bukus');
             $table->date('durasi_pinjam')->nullable();
             $table->date('tgl_kembali')->nullable();
-            $table->enum('status', ['pinjam','kembali'])->default('pinjam');
+            $table->enum('status', [ 'request','pinjam','kembali'])->default('request');
             $table->integer('denda')->nullable();
             $table->timestamps();
         });

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminPeminjamanController extends Controller
 {
    public function index(){
-      $peminjaman = peminjaman::where('status', 'pinjam')->get();
+      $peminjaman = peminjaman::where('status', 'request')->get();
     return view('admin.peminjaman', ['peminjaman' => $peminjaman]);
    } 
 
@@ -49,6 +49,21 @@ class AdminPeminjamanController extends Controller
    public function detail($id){
       $peminjaman = Peminjaman::with(['user', 'buku'])->findOrFail($id);
       return view('admin.detail_peminjaman', ['peminjaman' => $peminjaman]);
+   }
+
+   public function komfirmasi($id){
+      $peminjaman = peminjaman::findOrfail($id);
+      return view('admin.komfirmasi_pengembalian', ['peminjaman' => $peminjaman]);
+   }
+
+   public function accept($id){
+      $peminjaman = peminjaman::findOrFail($id);
+
+      $peminjaman->update([
+         'status' => 'pinjam'
+      ]);
+
+      return redirect('admin/peminjaman'); 
    }
 
 }

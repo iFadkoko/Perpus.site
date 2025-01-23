@@ -9,7 +9,7 @@ class UserBukuController extends Controller
 {
     public function index(){
         $buku = buku::all();
-        return view('daftarbuku', ['bukus' => $buku]);
+        return view('daftarbuku', ['buku' => $buku]);
     }
 
     public function detail(Request $request, $id){
