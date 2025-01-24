@@ -56,4 +56,15 @@ class AdminBukuController extends Controller
         $buku = buku::findOrFail($id);
         return view('admin.detail_buku', ['buku' => $buku] );
     }
+
+    public function filter(Request $request){
+
+    $request->validate([
+        'kategori' => 'required|string',
+    ]);
+
+    $bukus = buku::where('kategori', $request->kategori)->get();
+
+    return view('admin.daftarbuku', ['bukus' => $bukus]);
+}
 }

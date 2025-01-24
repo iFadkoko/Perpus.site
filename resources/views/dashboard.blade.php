@@ -66,9 +66,9 @@
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Add your databases
+                            Masuk Ke Halaman Daftar Buku
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">Use your own Notion databases or duplicate ours.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">Bila anda sudah login silahkan masuk ke daftar buku untuk melihat koleksi buku di perpustakaan</h4>
                     </div>
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
@@ -87,9 +87,9 @@
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Map your fields
+                            Periksa Stok Buku
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">Map your Notion fields with Feather fields.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">Periksa stok buku yang mau di pinjam bila, stok buku habis berati buku tidak ada di perpustakaan</h4>
                     </div>
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
@@ -108,9 +108,9 @@
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Choose your domain
+                            Masuk Halaman Peminjaman
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">Choose a domain or a subdomain for your blog.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">Bila sudah memilih buku mana yang akan di pinjam maka masuk ke halaman peminjaman</h4>
                     </div>
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
@@ -126,9 +126,9 @@
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Get your blog
+                            Isi Formulir Peminjaman
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">That's it. You will get back a professional blog.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">Pilih buku mana yang akan kamu pinjam lalu tentukan tanggal berapa kamu menggembalikan buku (buku di pinjam max-7 hari) lalu upload dan datang lah keperpustakaan untuk ambil bukunya</h4>
                     </div>
                 </li>
             </ul>

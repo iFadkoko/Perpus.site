@@ -54,8 +54,7 @@
         <p class="border-b-2 border-green-400 p-2 ml-3 rounded-lg">From Peminjaman</p>
     </div>
 
-    <div class="container relative flex-col  h-full max-w-5xl px-6 mx-auto xl:px-0 mt-4 w-screen">
-        <h2 class="mb-2 text-2xl font-bold leading-tight text-gray-900 pb-3">Setting E-books</h2>    
+    <div class="container relative flex-col  h-full max-w-5xl px-6 mx-auto xl:px-0 mt-4 w-screen"> 
         <div class="w-full bg-white p-10 rounded-xl shadow-xl">
             <div class="flex flex-wrap-reverse mb-6 sm:flex-row">
             </div>

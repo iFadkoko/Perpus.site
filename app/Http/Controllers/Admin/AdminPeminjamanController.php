@@ -31,12 +31,19 @@ class AdminPeminjamanController extends Controller
       'durasi_pinjam' => 'required|date',
      ]);
 
+     $buku = buku::find($request->buku_id);
+     if ($buku->stok < 1) {
+      return redirect()->back()->withErrors(['error' => 'Stok buku tidak mencukupi.']);
+      }
+
      peminjaman::create([
       'user_id' => $request->user_id,
       'buku_id' => $request->buku_id,
       'durasi_pinjam' => $request->durasi_pinjam,
       'status' => 'pinjam',
      ]);
+
+     $buku->decrement('stok');
 
      return redirect()->route('admin.peminjaman');
    }
@@ -62,6 +69,13 @@ class AdminPeminjamanController extends Controller
       $peminjaman->update([
          'status' => 'pinjam'
       ]);
+
+      $buku = buku::find($peminjaman->buku_id);
+      if ($buku->stok < 1) {
+       return redirect()->back()->withErrors(['error' => 'Stok buku tidak mencukupi.']);
+       } 
+      
+       $buku->decrement('stok');
 
       return redirect('admin/peminjaman'); 
    }

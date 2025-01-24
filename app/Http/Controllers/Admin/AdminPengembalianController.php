@@ -40,6 +40,9 @@ class AdminPengembalianController extends Controller
             'tgl_kembali' => $tgl_kembali, // Set tanggal kembali ke saat ini
             'denda' => $denda
         ]);
+
+        $buku = Buku::findOrFail($peminjaman->buku_id);
+        $buku->increment('stok');
     
         // Redirect ke halaman pengembalian dengan pesan sukses
         return redirect('admin/pengembalian')->with('success', 'Status berhasil diperbarui menjadi kembali.');

@@ -43,8 +43,9 @@ Route::middleware(['auth', 'userMiddleware'])->group(function(){
 
     Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');
     Route::get('/ebooks',[UsereBooksController::class,'index'])->name('ebooks');
-    Route::get('/ebooks', [UsereBooksController::class, 'index']);
+    Route::post('/filter-ebooks', [UsereBooksController::class, 'filter'])->name('ebooks.filter');
     Route::get('/daftarbuku', [UserBukuController::class, 'index'])->name('daftarbuku');
+    Route::post('/filter', [UserBukuController::class, 'filter'])->name('user.filter.buku');
     Route::get('/daftarbuku{id}', [UserBukuController::class, 'detail'])->name('user.buku');
     Route::get('/peminjaman', [UserPeminjamanController::class, 'index'])->name('peminjaman');
     Route::post('/peminjaman', [UserPeminjamanController::class, 'upload'])->name('upload.user.peminjaman');
@@ -92,4 +93,5 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function(){
     Route::get('/admin/daftarbuku/{id}', [AdminBukuController::class, 'detail'])->name('detail.buku');
     Route::post('/admin/daftarbuku', [AdminBukuController::class, 'upload'])->name('upload.buku');
     Route::delete('/admin/dafatarbuku/{id}', [AdminBukuController::class, 'destroy'])->name('destroy.buku');
+    Route::post('/admin/filter', [AdminBukuController::class, 'filter'])->name('filter.buku');
 });

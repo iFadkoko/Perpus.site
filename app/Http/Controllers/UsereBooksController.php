@@ -13,4 +13,15 @@ class UsereBooksController extends Controller
 
     }
 
+    public function filter(Request $request){
+
+        $request->validate([
+            'kategori' => 'required|string',
+        ]);
+    
+        $ebooks = Ebook::where('kategori', $request->kategori)->get();
+    
+        return view('ebooks', ['ebooks' => $ebooks]);
+    }
+
 }

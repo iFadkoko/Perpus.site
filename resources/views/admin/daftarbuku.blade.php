@@ -103,10 +103,12 @@
         Collection buku</h2>
     </div>
     <div>
-        <div class="  bg-white  rounded-md shadow-xl m-6 mt-10 font-bold">
-            <x-input-label for="katagori" :value="__('Filter')" class="pl-1 font-bold"/>
-                <select class="text-gray-500" name="kategori">
-                    <option value="0" disabled selected>Pilih Kategori</option>
+        <form action="{{ route('filter.buku') }}" method="POST">
+            @csrf
+            <div class="bg-white rounded-md shadow-xl m-6 mt-10 font-bold">
+                <x-input-label for="kategori" :value="__('Filter')" class="pl-1 font-bold"/>
+                <select class="text-gray-500" name="kategori" id="kategori" onchange="this.form.submit()">
+                    <option value="" disabled selected>Pilih Kategori</option>
                     <option value="Teknologi Komputer">Teknologi Komputer</option>
                     <option value="Administrasi Perkantoran">Administrasi Perkantoran</option>
                     <option value="Akutansi">Akutansi</option>
@@ -114,40 +116,47 @@
                     <option value="Perhotelan">Perhotelan</option>
                     <option value="Novel">Novel</option>
                     <option value="Komik">Komik</option>
-                    
                 </select>
-            <x-input-error :messages="$errors->get('katagori')" class="mt-2" />
-        </div>
-
+                <x-input-error :messages="$errors->get('kategori')" class="mt-2" />
+            </div> 
+        </form>
     </div>
+    
 </div>
 
 
-    <div class="flex flex-wrap w-full">
-        @foreach ( $bukus->reverse() as $item)
+<div class="flex flex-wrap w-full">
+    @if ($bukus->count() > 0)
+        @foreach ($bukus as $item)
             <div class="m-3">
-                <div class="bg-slate-200 p-2 rounded-lg w-80 h-5*  place-items-center shadow-xl flex">
+                <div class="bg-slate-200 p-2 rounded-lg w-80 h-auto place-items-center shadow-xl flex">
                     <div class="">
-                        <img src="{{ $item->cover_buku? asset('storage/' . $item->cover_buku) : asset('images/default.jpg') }}" alt="{{ $item->judul_buku }}" class="h-32 m-3 rounded-md">
+                        <img src="{{ $item->cover_buku ? asset('storage/' . $item->cover_buku) : asset('images/default.jpg') }}" 
+                             alt="{{ $item->judul_buku }}" 
+                             class="h-32 m-3 rounded-md">
                     </div>
                     <div class="bg-white p-2 rounded-md text-start font-sans h-auto w-56">
                         <h3 class="text-black font-bold">{{ $item->judul_buku }}</h3>
                         <a href="#" class="mr-3">{{ $item->kategori }}</a>
-                        <p class="text-gray-500 mb-3">{{$item->created_at->diffForHumans()}}</p>
+                        <p class="text-gray-500 mb-3">{{ $item->created_at->diffForHumans() }}</p>
                         <div class="flex">
-                            <a class="px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600 mr-3" href="{{ Route('detail.buku', $item->id) }}"   
-                                >Detail Buku</a>
-                                <form action="{{ route('destroy.buku', $item->id) }}" method="POST" onsubmit="return confirm('apakah anda yakin ingin menghapus buku ini?');">
-                                    @csrf
-                                    @method('DELETE')
-                                  <button type="submit" class="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
-                                </form>
+                            <a class="px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600 mr-3" 
+                               href="{{ Route('detail.buku', $item->id) }}">Detail Buku</a>
+                            <form action="{{ route('destroy.buku', $item->id) }}" method="POST" onsubmit="return confirm('apakah anda yakin ingin menghapus buku ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
-    </div>
+        @endforeach
+    @else
+        <p class="text-gray-500 m-6">Tidak ada buku dengan kategori yang dipilih.</p>
+    @endif
+</div>
+
 </div>
 </x-app-layout>
 

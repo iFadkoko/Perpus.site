@@ -30,20 +30,40 @@
         
     </x-slot>
 
-    <div>
-        <div class="bg-white w-52 p-3 rounded-xl shadow-xl m-6 mt-10 font-bold">
+    <div class="flex justify-between ">
+        <div class="bg-white w-1/2 p-4 rounded-xl shadow-xl m-0 md:m-6 mt-10 font-bold">
             <h2>
-                <i class="fa-solid fa-book fa-xl text-black mr-2"></i> 
-            Collection e-book</h2>
+                <i class="fa-solid fa-book fa-xl text-black text-sm mr-0 md:mr-2"></i> 
+            Collection e-books</h2>
         </div>
-        <div>
+        <div class="w-1/2">
+            <form action="{{ route('ebooks.filter') }}" method="POST">
+                @csrf
+                <div class="bg-white rounded-md shadow-xl m-1 md:m-6 mt-10 font-bold">
+                    <x-input-label for="kategori" :value="__('Filter')" class="pl-1 font-bold"/>
+                    <select class="text-gray-500" name="kategori" id="kategori" onchange="this.form.submit()">
+                        <option value="" disabled selected>Pilih Kategori</option>
+                        <option value="Teknologi Komputer">Teknologi Komputer</option>
+                        <option value="Administrasi Perkantoran">Administrasi Perkantoran</option>
+                        <option value="Akutansi">Akutansi</option>
+                        <option value="Perbankan">Perbankan</option>
+                        <option value="Perhotelan">Perhotelan</option>
+                        <option value="Novel">Novel</option>
+                        <option value="Komik">Komik</option>
+                    </select>
+                    <x-input-error :messages="$errors->get('kategori')" class="mt-2" />
+                    <a href="{{ route('ebooks') }}" class="p-0.5 md:p-0.5 h-7 text-sm text-gray-500 rounded hover:bg-gray-600 hover:text-white">Reset Filter</a>
+                </div> 
+            </form>
         </div>
+        
     </div>
 
     <div class="flex flex-wrap">
+        @if ($ebooks->count() > 0)
         @foreach ( $ebooks->reverse() as $item)
-            <div class="m-5">
-                <div class="bg-slate-200 p-2 rounded-lg w-96 h-58  place-items-center shadow-xl flex">
+            <div class=" m-1 md:m-5">
+                <div class="bg-slate-100 p-2 rounded-lg w-96 h-58  place-items-center shadow-xl flex">
                     <div class="">
                         <img src="{{ $item->cover_ebook ? asset('storage/' . $item->cover_ebook) : asset('images/default.jpg') }}" alt="{{ $item->judul_ebook }}" class="h-32 m-3 rounded-md">
                     </div>
@@ -60,6 +80,9 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <p class="text-gray-500 m-6">Tidak ada ebooks dengan kategori yang dipilih.</p>
+        @endif
     </div>
 </x-app-layout>
 

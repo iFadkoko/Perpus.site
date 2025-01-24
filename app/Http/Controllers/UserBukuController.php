@@ -17,4 +17,15 @@ class UserBukuController extends Controller
         $buku = buku::findOrFail($id);
         return view('buku', ['buku' => $buku] );
     }
+
+    public function filter(Request $request){
+
+        $request->validate([
+            'kategori' => 'required|string',
+        ]);
+    
+        $buku = buku::where('kategori', $request->kategori)->get();
+    
+        return view('daftarbuku', ['buku' => $buku]);
+}
 }
