@@ -10,10 +10,18 @@ use Illuminate\Support\Facades\Auth;
 
 class UserPeminjamanController extends Controller
 {
-    public function index(){
-        $buku = buku::all();
-        $user = Auth::User();
-        return view('peminjaman', ['buku' => $buku]);
+    public function index() {
+        $buku = Buku::all();
+        $user = Auth::user();
+        
+        // Ambil data peminjaman hanya milik user yang sedang login
+        $peminjaman = Peminjaman::where('user_id', Auth::id())->get();
+    
+        return view('peminjaman', [
+            'buku' => $buku,
+            'user' => $user,
+            'peminjaman' => $peminjaman
+        ]);
     }   
 
     public function upload(Request $request){

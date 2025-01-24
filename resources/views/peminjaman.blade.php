@@ -99,7 +99,80 @@
         </div>
     </div>
 
+    <div class="container mx-auto">
+        <div class="font-bold">
+            <h3 class="text-3xl pt-3 pl-4 pb-3 font-bold border-b-black border-2 shadow-lg rounded-lg mt-5 mb-3">
+                Data Peminjaman buku
+            </h3>
+        </div> 
+        <div class="w-full bg-white p-10 rounded-xl shadow-xl">
+            <div class="w-full mb-6 sm:flex-row">
+                <table class="w-full border-collapse border text-center text-sm">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="p-5">Cover</th>
+                            <th class="p-5">Nama Member</th>
+                            <th class="p-5">Judul Buku</th>
+                            <th class="p-5">Tanggal Pinjam</th>
+                            <th class="p-5">Schedule Kembali</th>
+                            <th class="p-5">Status Pinjam</th>
+                            <th class="p-5">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($peminjaman as $item)
+                            <tr class="border-b">
+                                <td class="p-5">
+                                    <img 
+                                        src="{{ asset('storage/' . $item->buku->cover_buku) }}" 
+                                        alt="Cover Buku" 
+                                        class="m-2 w-10 h-10 rounded-lg object-cover">
+                                </td>
 
+                                <td class="p-5 border">{{ $item->user->name ?? 'User Tidak Ditemukan' }}</td>
+                                <td class="p-5 border">{{ $item->buku->judul_buku ?? 'Buku Tidak Ditemukan' }}</td>                
+                                <td class="p-5 border">{{ $item->created_at->format('Y-m-d') }}</td>
+                                <td class="p-5 border">{{ $item->durasi_pinjam }}</td>
+                                <td class="p-5 border">
+                                    <p class="{{ $item->status == 'request' ? 'text-green-700 animate-pulse' : 'text-gray-700' }}">
+                                        {{ ucfirst($item->status) }}
+                                    </p>
+                                </td>
+                                <td class="p-5 border">
+                                    <div class="flex gap-2 justify-center">
+                                        <a href="{{ route('admin.peminjaman.detail', $item->id) }}" 
+                                           class="px-3 py-1 text-sm text-white bg-sky-500 rounded hover:bg-sky-600">
+                                           Detail
+                                        </a>
+                                        <a href="{{ route('admin.peminjaman.komfirmasi', $item->id) }}" 
+                                           class="px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600">
+                                           Komfirmasi
+                                        </a>
+                                        <form action="{{ route('admin.peminjaman.destroy', $item->id) }}" method="POST" 
+                                              onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" 
+                                                    class="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7" class="p-5 text-center text-gray-500">
+                                    Tidak ada data peminjaman saat ini.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
     
 
 </x-app-layout>
